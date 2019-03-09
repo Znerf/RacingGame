@@ -105,6 +105,10 @@ void update(int value) {
     if (mov > 480) {
         mov = 0;
     }
+    if(angle>350)
+    {
+        angle=0;
+    }
 
     glutPostRedisplay(); //Tell GLUT that the scene has changed
 
@@ -243,7 +247,6 @@ GLvoid DrawGLScene()
                                     /* OBJECT MODULE*/
 
             glPushMatrix();
-
                 glTranslatef(0.0,0.0,.6);
                 glRotatef(modelx,1.0,0.0,0.0);
                 glRotatef(modely,0.0,1.0,0.0);
@@ -253,7 +256,7 @@ GLvoid DrawGLScene()
 
                 /* top of cube*/
                 //************************FRONT BODY****************************************
-                    glColor3f(0.0f,0.4f,.4f);
+                    glColor3f(.2f,0.5f,.9f);
                     glNormal3f(-1.0f,0.0f,1.0f);
                     glVertex3f( 0.2, 0.4,0.6);
                     glNormal3f(1.0f,0.0f,1.0f);
@@ -783,7 +786,7 @@ GLvoid DrawGLScene()
 
 
             glTranslatef(0,-0.1,0);
-            glColor3f(0.2,0.9,0.2);
+            glColor3f(0.2,0.8,0.2);
             glBegin(GL_QUADS);
             glVertex3f(500,0,500);
             glVertex3f(500,0,-500);////////////
@@ -3186,7 +3189,7 @@ void NormalKey(GLubyte key, GLint x, GLint y)
         yt -= 0.2;                      /* Move down */
         break;
 
-    case 'i':                          /* Move up */
+     case 'i':                          /* Move up */
         xt += 0.2;
         break;
 
@@ -3200,7 +3203,7 @@ void NormalKey(GLubyte key, GLint x, GLint y)
       case 'a':ys+=0.2;
 		  break;
 
-     case 'W':zs-=0.2;
+      case 'W':zs-=0.2;
 		  break;
 
       case 'w':zs+=0.2;
@@ -3276,14 +3279,14 @@ static void SpecialKeyFunc( int Key, int x, int y )
 {
 	switch ( Key ) {
 	case GLUT_KEY_DOWN:
-            speed-=1;
+            speed-=0.5;
 
 
 	    //glutPostRedisplay();
 		break;
 
     case GLUT_KEY_UP:
-            speed+=1;
+            speed+=0.5;
 
         //glutPostRedisplay();
 		break;
@@ -3393,6 +3396,7 @@ void myMenu(int id)
         //glutPostRedisplay();
     }
 }
+
 
 
 
